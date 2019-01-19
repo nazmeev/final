@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block title %}View record{% endblock %}
+{% block head %}
+{{ parent() }}
+
+{% endblock %}
+{% block content %}
+<h1>View record</h1>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><label>Name: </label>
+            {{record.name}}</h5>
+        <p class="card-text">
+            <div>
+                <label>Surname: </label>
+                {{record.surname}}
+            </div>
+            <div>
+                <label>Phone: </label>
+                {{record.phone}}
+            </div>
+            <div>
+                <label>Viber: </label>
+                {{record.viber}}
+            </div>
+            <div>
+                <label>Organization: </label>
+                {{record.organization}}
+            </div>
+
+        </p>
+        <a href="/record/edit/{{record.id}}" class="btn btn-primary">Edit</a>
+        <a href="/records" class="btn btn-primary btn-success">Back</a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+{% block title %}Create record{% endblock %}
+{% block head %}
+{{ parent() }}
+
+{% endblock %}
+{% block content %}
+<h1>Edit record</h1>
+
+<form method="post" action="/record/save">
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" placeholder="Enter name" name="name"  value="{{record.name}}">
+    </div>
+    <div class="form-group">
+        <label for="Surname">Surname</label>
+        <input type="text" class="form-control" id="Surname" placeholder="Enter surname" name="surname" value="{{record.surname}}">
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Enter phone" name="phone" value="{{record.phone}}">
+    </div>
+    <div class="form-group">
+        <label for="viber">Viber</label>
+        <input type="text" class="form-control" id="viber" aria-describedby="viberHelp" placeholder="Enter viber" name="viber" value="{{record.viber}}">
+    </div>
+    <div class="form-group">
+        <label for="organization">Organization</label>
+        <input type="text" class="form-control" id="organization" placeholder="Enter organization" name="organization" value="{{record.organization}}">
+    </div>
+    <input type="hidden" value="{{record.id}}" name="id">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/records" class="btn btn-primary btn-success">Back</a>
+</form>
+
+{% endblock %}

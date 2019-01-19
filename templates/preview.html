@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ parent() }}
+<style type="text/css">
+    .important { color: #336699; }
+</style>
+{% endblock %}
+{% block content %}
+<h1>Records</h1>
+<table class="table table-hover">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Viber</th>
+        <th scope="col">Organization</th>
+        <th></th>
+    </tr>
+    {% for record in records %}
+    <tr>
+        <td>{{record.name}}</td>
+        <td>{{record.surname}}</td>
+        <td>{{record.phone}}</td>
+        <td>{{record.viber}}</td>
+        <td>{{record.organization}}</td>
+        <td width="100px">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a type="button" class="btn btn-secondary btn-success" href="/record/view/{{record.id}}">View</a>
+                <a type="button" class="btn btn-secondary" href="/record/edit/{{record.id}}">Edit</a>
+                <a type="button" class="btn btn-danger" href="/record/remove/{{record.id}}" onclick="return confirm('Ready?');">Delete</a>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
